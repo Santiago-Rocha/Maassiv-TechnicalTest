@@ -12,7 +12,7 @@ public class NumberBet extends Bet {
     @Override
     public void calculateAward(int winNumber) {
         if(number==winNumber){
-            setAward(10*getAmount());
+            setAward(5*getAmount());
         }
     }
 }

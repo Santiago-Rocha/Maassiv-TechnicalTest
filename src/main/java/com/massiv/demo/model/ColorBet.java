@@ -12,7 +12,7 @@ public class ColorBet extends Bet {
     @Override
     public void calculateAward(int winNumber) {
         if((winNumber%2 == 0 && color == BetColor.RED) || (winNumber%2 == 1 && color == BetColor.BLACK)){
-            setAward(10*getAmount());
+            setAward(1.8*getAmount());
         }
     }
 }

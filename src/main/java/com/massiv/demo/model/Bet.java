@@ -17,7 +17,7 @@ public abstract class Bet {
     private UUID id;
     @Indexed
     private UUID roundId;
-    private int amount;
-    private int award;
+    private double amount;
+    private double award;
     public abstract void calculateAward (int winNumber);
 }
