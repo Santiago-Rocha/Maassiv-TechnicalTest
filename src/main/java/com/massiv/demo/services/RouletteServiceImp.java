@@ -36,35 +36,35 @@ public class RouletteServiceImp implements RouletteService {
     }
     @Override
     public UUID openRoulette(UUID rouletteId) throws RouletteException {
-        Optional<Roulette> optionalRoulette = rouletteRepository.findById(rouletteId);
-        if(optionalRoulette.isPresent()){
-            Roulette roulette = optionalRoulette.get();
-            roulette.open();
-            roundRepository.save(new Round(rouletteId, Round.NOT_PLAYED_ROUND));
-            return rouletteRepository.save(roulette).getId();
-        }else {
-            throw new RouletteException("Roulette with id: "+rouletteId+" not exists");
-        }
+        Roulette roulette = getRouletteById(rouletteId);
+        roulette.open();
+        roundRepository.save(new Round(rouletteId, Round.NOT_PLAYED_ROUND));
 
+        return rouletteRepository.save(roulette).getId();
     }
     @Override
     public List<Bet> closeRoulette(UUID rouletteId) throws RouletteException{
+        Roulette roulette = getRouletteById(rouletteId);
+        if (roulette.getState() == RouletteState.OPEN) {
+            roulette.close();
+            rouletteRepository.save(roulette);
+            Round round = roundRepository.findByWinnerNumberAndRouletteId(Round.NOT_PLAYED_ROUND,rouletteId);
+            round.calculateWinnerNumber();
+            roundRepository.save(round);
+
+            return getBetAwards(round);
+        }
+        else{
+            throw new RouletteException("Roulette "+rouletteId+" must be open");
+        }
+    }
+    private Roulette getRouletteById(UUID rouletteId) throws RouletteException {
         Optional<Roulette> optionalRoulette = rouletteRepository.findById(rouletteId);
         if(optionalRoulette.isPresent()){
-            Roulette roulette = optionalRoulette.get();
-            if (roulette.getState() == RouletteState.OPEN) {
-                roulette.close();
-                rouletteRepository.save(roulette);
-                Round round = roundRepository.findByWinnerNumberAndRouletteId(Round.NOT_PLAYED_ROUND,rouletteId);
-                round.calculateWinnerNumber();
-                roundRepository.save(round);
 
-                return getBetAwards(round);
-            }
-            else{
-                throw new RouletteException("Roulette "+rouletteId+" must be open");
-            }
-        }else {
+            return optionalRoulette.get();
+        }
+        else{
             throw new RouletteException("Roulette with id: "+rouletteId+" not exists");
         }
     }

@@ -26,6 +26,7 @@ public class BetServiceImp implements BetService {
         if(round != null){
             if(bet.isValid()){
                 bet.setRoundId(round.getId());
+
                 return betRepository.save(bet).getId();
             }
             else{
