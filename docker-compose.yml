@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  database:
+    image: redis:6.0
+    ports:
+    - 6379:6379
+    container_name: roulette-redisdb
+  api:
+    build: .
+    ports:
+    - 8080:8080
+    container_name: roulette-api
+    depends_on:
+      - database

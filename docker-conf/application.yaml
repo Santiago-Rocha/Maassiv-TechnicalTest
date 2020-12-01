@@ -1,0 +1,4 @@
+spring:
+  redis:
+    host: database
+    port: 6379
