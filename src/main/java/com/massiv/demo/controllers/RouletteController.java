@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+/**
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @RestController
 @RequestMapping("/roulette")
 public class RouletteController {

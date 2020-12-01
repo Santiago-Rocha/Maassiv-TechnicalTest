@@ -8,9 +8,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.index.Indexed;
 
-import java.time.Instant;
 import java.util.UUID;
 
+/**
+ * Represents a simple bet in roulette
+ *
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @Data
 @RedisHash("Bet")
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")

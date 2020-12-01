@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+/**
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @Service
 public class BetServiceImp implements BetService {
     private final BetRepository betRepository;

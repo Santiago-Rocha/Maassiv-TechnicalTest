@@ -9,6 +9,11 @@ import org.springframework.data.redis.core.index.Indexed;
 import java.util.Random;
 import java.util.UUID;
 
+/**
+ * Represents a round of play in roulette
+ *
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @Data
 @NoArgsConstructor
 @RedisHash("Round")

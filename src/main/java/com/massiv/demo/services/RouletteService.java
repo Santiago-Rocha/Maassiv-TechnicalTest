@@ -7,6 +7,9 @@ import com.massiv.demo.model.Roulette;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 public interface RouletteService {
     List<Roulette> getAllRoulettes();
     UUID createRoulette();

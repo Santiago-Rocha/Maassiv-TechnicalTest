@@ -5,9 +5,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-
 import java.util.UUID;
 
+/**
+ * Represent the roulette
+ *
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @RedisHash("Roulette")
 @Data
 @AllArgsConstructor

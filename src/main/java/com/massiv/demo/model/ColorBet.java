@@ -4,6 +4,11 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * Represents a color bet in roulette
+ *
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data

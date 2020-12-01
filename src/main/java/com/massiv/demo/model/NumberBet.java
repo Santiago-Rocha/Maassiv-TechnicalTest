@@ -3,8 +3,12 @@ package com.massiv.demo.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
+/**
+ * Represents a numerical bet in roulette
+ *
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @Data

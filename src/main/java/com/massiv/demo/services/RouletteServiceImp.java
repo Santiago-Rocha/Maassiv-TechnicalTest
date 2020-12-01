@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/**
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 @Service
 public class RouletteServiceImp implements RouletteService {
     private final RouletteRepository rouletteRepository;

@@ -5,6 +5,9 @@ import com.massiv.demo.model.Bet;
 
 import java.util.UUID;
 
+/**
+ * @author <a href="santiago.rocha.duran@gmail.com">Santiago Rocha</a>
+ */
 public interface BetService {
     UUID createBet(UUID rouletteId, Bet bet) throws RouletteException;
 }
